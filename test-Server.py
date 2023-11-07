@@ -74,7 +74,7 @@ import socket
 
 def start_udp_server():
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    server_socket.bind(('0.0.0.0', 8889)
+    server_socket.bind('0.0.0.0', 8889)
 
     while True:
         data, client_address = server_socket.recvfrom(1024)
@@ -138,13 +138,13 @@ if __name__ == "__main__":
 from dnslib.server import DNSServer, DNSHandler, UDPListener
 
 class DNSHandler(DNSHandler):
-    def resolve(self, request, handler):
+    # def resolve(self, request, handler):
         # Handle DNS request and return the appropriate DNS response
 
-def handle_dns():
-    udp_server = UDPListener(("0.0.0.0", 53), DNSHandler)
-    dns_server = DNSServer(udp_server)
-    dns_server.start()
+    def handle_dns():
+        udp_server = UDPListener(("0.0.0.0", 53), DNSHandler)
+        dns_server = DNSServer(udp_server)
+        dns_server.start()
 
 if __name__ == "__main__":
     handle_dns()
