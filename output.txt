@@ -1,0 +1,245 @@
+Timestamp: 2023-10-12 10:19:06.977221
+Packet info: Packet (Length: 1070)
+[1m[33mLayer ETH
+:[0m[1m[32m	Destination:[0m[1m 54:14:f3:b5:5a:b8
+[0m[1m[32m	Address:[0m[1m 54:14:f3:b5:5a:b8
+[0m[1m[32m	.... ..0. .... .... .... .... = LG bit:[0m[1m Globally unique address (factory default)
+[0m[1m[32m	.... ...0 .... .... .... .... = IG bit:[0m[1m Individual address (unicast)
+[0m[1m[32m	Source:[0m[1m 74:4c:a1:90:dd:d3
+[0m[1m[32m	.... ..0. .... .... .... .... = LG bit:[0m[1m Globally unique address (factory default)
+[0m[1m[32m	.... ...0 .... .... .... .... = IG bit:[0m[1m Individual address (unicast)
+[0m[1m[32m	Type:[0m[1m IPv4 (0x0800)
+[0m[1m[32m	Address:[0m[1m 74:4c:a1:90:dd:d3
+[0m[1m[33mLayer IP
+:[0m[1m[32m	0100 .... = Version:[0m[1m 4
+[0m[1m[32m	.... 0101 = Header Length:[0m[1m 20 bytes (5)
+[0m[1m[32m	Differentiated Services Field:[0m[1m 0x00 (DSCP: CS0, ECN: Not-ECT)
+[0m[1m[32m	0000 00.. = Differentiated Services Codepoint:[0m[1m Default (0)
+[0m[1m[32m	.... ..00 = Explicit Congestion Notification:[0m[1m Not ECN-Capable Transport (0)
+[0m[1m[32m	Total Length:[0m[1m 1056
+[0m[1m[32m	Identification:[0m[1m 0x0fbc (4028)
+[0m[1m[32m	000. .... = Flags:[0m[1m 0x0
+[0m[1m[32m	0... .... = Reserved bit:[0m[1m Not set
+[0m[1m[32m	.0.. .... = Don't fragment:[0m[1m Not set
+[0m[1m[32m	..0. .... = More fragments:[0m[1m Not set
+[0m[1m[32m	...0 0000 0000 0000 = Fragment Offset:[0m[1m 0
+[0m[1m[32m	Time to Live:[0m[1m 128
+[0m[1m[32m	Protocol:[0m[1m UDP (17)
+[0m[1m[32m	Header Checksum:[0m[1m 0x651d [validation disabled]
+[0m[1m[32m	Header checksum status:[0m[1m Unverified
+[0m[1m[32m	Source Address:[0m[1m 10.100.90.192
+[0m[1m[32m	Destination Address:[0m[1m 10.100.82.108
+[0m[1m[33mLayer UDP
+:[0m[1m[32m	Source Port:[0m[1m 51115
+[0m[1m[32m	Destination Port:[0m[1m 5000
+[0m[1m[32m	Length:[0m[1m 1036
+[0m[1m[32m	Checksum:[0m[1m 0x37b3 [unverified]
+[0m[1m[32m	Checksum Status:[0m[1m Unverified
+[0m[1m[32m	Stream index:[0m[1m 8
+[0m[1m	Timestamps
+[0m[1m[32m	Time since first frame:[0m[1m 0.000000000 seconds
+[0m[1m[32m	Time since previous frame:[0m[1m 0.000000000 seconds
+[0m[1m	UDP payload (1028 bytes)
+[0mDATA
+Timestamp: 2023-10-12 10:23:54.075351
+Packet info: Packet (Length: 1066)
+[1m[33mLayer ETH
+:[0m[1m[32m	Destination:[0m[1m 54:14:f3:b5:5a:b8
+[0m[1m[32m	Address:[0m[1m 54:14:f3:b5:5a:b8
+[0m[1m[32m	.... ..0. .... .... .... .... = LG bit:[0m[1m Globally unique address (factory default)
+[0m[1m[32m	.... ...0 .... .... .... .... = IG bit:[0m[1m Individual address (unicast)
+[0m[1m[32m	Source:[0m[1m 1c:57:dc:72:e5:d4
+[0m[1m[32m	.... ..0. .... .... .... .... = LG bit:[0m[1m Globally unique address (factory default)
+[0m[1m[32m	.... ...0 .... .... .... .... = IG bit:[0m[1m Individual address (unicast)
+[0m[1m[32m	Type:[0m[1m IPv4 (0x0800)
+[0m[1m[32m	Address:[0m[1m 1c:57:dc:72:e5:d4
+[0m[1m[33mLayer IP
+:[0m[1m[32m	0100 .... = Version:[0m[1m 4
+[0m[1m[32m	.... 0101 = Header Length:[0m[1m 20 bytes (5)
+[0m[1m[32m	Differentiated Services Field:[0m[1m 0x00 (DSCP: CS0, ECN: Not-ECT)
+[0m[1m[32m	0000 00.. = Differentiated Services Codepoint:[0m[1m Default (0)
+[0m[1m[32m	.... ..00 = Explicit Congestion Notification:[0m[1m Not ECN-Capable Transport (0)
+[0m[1m[32m	Total Length:[0m[1m 1052
+[0m[1m[32m	Identification:[0m[1m 0xe7cc (59340)
+[0m[1m[32m	000. .... = Flags:[0m[1m 0x0
+[0m[1m[32m	0... .... = Reserved bit:[0m[1m Not set
+[0m[1m[32m	.0.. .... = Don't fragment:[0m[1m Not set
+[0m[1m[32m	..0. .... = More fragments:[0m[1m Not set
+[0m[1m[32m	...0 0000 0000 0000 = Fragment Offset:[0m[1m 0
+[0m[1m[32m	Time to Live:[0m[1m 64
+[0m[1m[32m	Protocol:[0m[1m UDP (17)
+[0m[1m[32m	Header Checksum:[0m[1m 0xcf0a [validation disabled]
+[0m[1m[32m	Header checksum status:[0m[1m Unverified
+[0m[1m[32m	Source Address:[0m[1m 10.100.88.198
+[0m[1m[32m	Destination Address:[0m[1m 10.100.82.108
+[0m[1m[33mLayer UDP
+:[0m[1m[32m	Source Port:[0m[1m 55523
+[0m[1m[32m	Destination Port:[0m[1m 5000
+[0m[1m[32m	Length:[0m[1m 1032
+[0m[1m[32m	Checksum:[0m[1m 0xe9e6 [unverified]
+[0m[1m[32m	Checksum Status:[0m[1m Unverified
+[0m[1m[32m	Stream index:[0m[1m 3
+[0m[1m	Timestamps
+[0m[1m[32m	Time since first frame:[0m[1m 0.000000000 seconds
+[0m[1m[32m	Time since previous frame:[0m[1m 0.000000000 seconds
+[0m[1m	UDP payload (1024 bytes)
+[0mDATA
+Timestamp: 2023-10-12 10:27:56.665361
+Packet info: Packet (Length: 1066)
+[1m[33mLayer ETH
+:[0m[1m[32m	Destination:[0m[1m 54:14:f3:b5:5a:b8
+[0m[1m[32m	Address:[0m[1m 54:14:f3:b5:5a:b8
+[0m[1m[32m	.... ..0. .... .... .... .... = LG bit:[0m[1m Globally unique address (factory default)
+[0m[1m[32m	.... ...0 .... .... .... .... = IG bit:[0m[1m Individual address (unicast)
+[0m[1m[32m	Source:[0m[1m 1c:57:dc:72:e5:d4
+[0m[1m[32m	.... ..0. .... .... .... .... = LG bit:[0m[1m Globally unique address (factory default)
+[0m[1m[32m	.... ...0 .... .... .... .... = IG bit:[0m[1m Individual address (unicast)
+[0m[1m[32m	Type:[0m[1m IPv4 (0x0800)
+[0m[1m[32m	Address:[0m[1m 1c:57:dc:72:e5:d4
+[0m[1m[33mLayer IP
+:[0m[1m[32m	0100 .... = Version:[0m[1m 4
+[0m[1m[32m	.... 0101 = Header Length:[0m[1m 20 bytes (5)
+[0m[1m[32m	Differentiated Services Field:[0m[1m 0x00 (DSCP: CS0, ECN: Not-ECT)
+[0m[1m[32m	0000 00.. = Differentiated Services Codepoint:[0m[1m Default (0)
+[0m[1m[32m	.... ..00 = Explicit Congestion Notification:[0m[1m Not ECN-Capable Transport (0)
+[0m[1m[32m	Total Length:[0m[1m 1052
+[0m[1m[32m	Identification:[0m[1m 0x1a55 (6741)
+[0m[1m[32m	000. .... = Flags:[0m[1m 0x0
+[0m[1m[32m	0... .... = Reserved bit:[0m[1m Not set
+[0m[1m[32m	.0.. .... = Don't fragment:[0m[1m Not set
+[0m[1m[32m	..0. .... = More fragments:[0m[1m Not set
+[0m[1m[32m	...0 0000 0000 0000 = Fragment Offset:[0m[1m 0
+[0m[1m[32m	Time to Live:[0m[1m 64
+[0m[1m[32m	Protocol:[0m[1m UDP (17)
+[0m[1m[32m	Header Checksum:[0m[1m 0x9c82 [validation disabled]
+[0m[1m[32m	Header checksum status:[0m[1m Unverified
+[0m[1m[32m	Source Address:[0m[1m 10.100.88.198
+[0m[1m[32m	Destination Address:[0m[1m 10.100.82.108
+[0m[1m[33mLayer UDP
+:[0m[1m[32m	Source Port:[0m[1m 53005
+[0m[1m[32m	Destination Port:[0m[1m 5000
+[0m[1m[32m	Length:[0m[1m 1032
+[0m[1m[32m	Checksum:[0m[1m 0x74e7 [unverified]
+[0m[1m[32m	Checksum Status:[0m[1m Unverified
+[0m[1m[32m	Stream index:[0m[1m 0
+[0m[1m	Timestamps
+[0m[1m[32m	Time since first frame:[0m[1m 0.000000000 seconds
+[0m[1m[32m	Time since previous frame:[0m[1m 0.000000000 seconds
+[0m[1m	UDP payload (1024 bytes)
+[0mDATA
+Timestamp: 2023-10-12 11:47:52.567012
+Packet info: Packet (Length: 1070)
+[1m[33mLayer ETH
+:[0m[1m[32m	Destination:[0m[1m 54:14:f3:b5:5a:b8
+[0m[1m[32m	Address:[0m[1m 54:14:f3:b5:5a:b8
+[0m[1m[32m	.... ..0. .... .... .... .... = LG bit:[0m[1m Globally unique address (factory default)
+[0m[1m[32m	.... ...0 .... .... .... .... = IG bit:[0m[1m Individual address (unicast)
+[0m[1m[32m	Source:[0m[1m 1c:57:dc:72:e5:d4
+[0m[1m[32m	.... ..0. .... .... .... .... = LG bit:[0m[1m Globally unique address (factory default)
+[0m[1m[32m	.... ...0 .... .... .... .... = IG bit:[0m[1m Individual address (unicast)
+[0m[1m[32m	Type:[0m[1m IPv4 (0x0800)
+[0m[1m[32m	Address:[0m[1m 1c:57:dc:72:e5:d4
+[0m[1m[33mLayer IP
+:[0m[1m[32m	0100 .... = Version:[0m[1m 4
+[0m[1m[32m	.... 0101 = Header Length:[0m[1m 20 bytes (5)
+[0m[1m[32m	Differentiated Services Field:[0m[1m 0x00 (DSCP: CS0, ECN: Not-ECT)
+[0m[1m[32m	0000 00.. = Differentiated Services Codepoint:[0m[1m Default (0)
+[0m[1m[32m	.... ..00 = Explicit Congestion Notification:[0m[1m Not ECN-Capable Transport (0)
+[0m[1m[32m	Total Length:[0m[1m 1056
+[0m[1m[32m	Identification:[0m[1m 0xddc8 (56776)
+[0m[1m[32m	000. .... = Flags:[0m[1m 0x0
+[0m[1m[32m	0... .... = Reserved bit:[0m[1m Not set
+[0m[1m[32m	.0.. .... = Don't fragment:[0m[1m Not set
+[0m[1m[32m	..0. .... = More fragments:[0m[1m Not set
+[0m[1m[32m	...0 0000 0000 0000 = Fragment Offset:[0m[1m 0
+[0m[1m[32m	Time to Live:[0m[1m 64
+[0m[1m[32m	Protocol:[0m[1m UDP (17)
+[0m[1m[32m	Header Checksum:[0m[1m 0xbd17 [validation disabled]
+[0m[1m[32m	Header checksum status:[0m[1m Unverified
+[0m[1m[32m	Source Address:[0m[1m 192.168.45.122
+[0m[1m[32m	Destination Address:[0m[1m 192.168.45.34
+[0m[1m[33mLayer UDP
+:[0m[1m[32m	Source Port:[0m[1m 49671
+[0m[1m[32m	Destination Port:[0m[1m 5000
+[0m[1m[32m	Length:[0m[1m 1036
+[0m[1m[32m	Checksum:[0m[1m 0xa190 [unverified]
+[0m[1m[32m	Checksum Status:[0m[1m Unverified
+[0m[1m[32m	Stream index:[0m[1m 61
+[0m[1m	Timestamps
+[0m[1m[32m	Time since first frame:[0m[1m 0.000000000 seconds
+[0m[1m[32m	Time since previous frame:[0m[1m 0.000000000 seconds
+[0m[1m	UDP payload (1028 bytes)
+[0mDATA
+Timestamp: 2023-10-15 17:41:09.979594
+Packet info: Packet (Length: 160)
+[1m[33mLayer ETH
+:[0m[1m[32m	Destination:[0m[1m 78:53:0d:e9:c3:19
+[0m[1m[32m	Destination (resolved):[0m[1m 78:53:0d:e9:c3:19
+[0m[1m[32m	Destination OUI:[0m[1m 78:53:0d (Shenzhen Skyworth Dig
+[0m[1m[32m	Destination OUI (resolved):[0m[1m Shenzhen Skyworth Digital Technology CO., Ltd
+[0m[1m[32m	Address:[0m[1m 78:53:0d:e9:c3:19
+[0m[1m[32m	Address (resolved):[0m[1m 78:53:0d:e9:c3:19
+[0m[1m[32m	Address OUI:[0m[1m 78:53:0d (Shenzhen Skyworth Dig
+[0m[1m[32m	Address OUI (resolved):[0m[1m Shenzhen Skyworth Digital Technology CO., Ltd
+[0m[1m[32m	.... ..0. .... .... .... .... = LG bit:[0m[1m Globally unique address (factory default)
+[0m[1m[32m	.... ..0. .... .... .... .... = LG bit:[0m[1m Globally unique address (factory default)
+[0m[1m[32m	.... ...0 .... .... .... .... = IG bit:[0m[1m Individual address (unicast)
+[0m[1m[32m	.... ...0 .... .... .... .... = IG bit:[0m[1m Individual address (unicast)
+[0m[1m[32m	Source:[0m[1m 54:14:f3:b5:5a:b8
+[0m[1m[32m	Source (resolved):[0m[1m 54:14:f3:b5:5a:b8
+[0m[1m[32m	Source OUI:[0m[1m 54:14:f3 (Intel Corporate)
+[0m[1m[32m	Source OUI (resolved):[0m[1m Intel Corporate
+[0m[1m[32m	.... ..0. .... .... .... .... = LG bit:[0m[1m Globally unique address (factory default)
+[0m[1m[32m	.... ...0 .... .... .... .... = IG bit:[0m[1m Individual address (unicast)
+[0m[1m[32m	Type:[0m[1m IPv4 (0x0800)
+[0m[1m[32m	Address:[0m[1m 54:14:f3:b5:5a:b8
+[0m[1m[32m	Address (resolved):[0m[1m 54:14:f3:b5:5a:b8
+[0m[1m[32m	Address OUI:[0m[1m 54:14:f3 (Intel Corporate)
+[0m[1m[32m	Address OUI (resolved):[0m[1m Intel Corporate
+[0m[1m[32m	.... ..0. .... .... .... .... = LG bit:[0m[1m Globally unique address (factory default)
+[0m[1m[32m	.... ...0 .... .... .... .... = IG bit:[0m[1m Individual address (unicast)
+[0m[1m[33mLayer IP
+:[0m[1m[32m	0100 .... = Version:[0m[1m 4
+[0m[1m[32m	.... 0101 = Header Length:[0m[1m 20 bytes (5)
+[0m[1m[32m	Differentiated Services Field:[0m[1m 0x00 (DSCP: CS0, ECN: Not-ECT)
+[0m[1m[32m	0000 00.. = Differentiated Services Codepoint:[0m[1m Default (0)
+[0m[1m[32m	.... ..00 = Explicit Congestion Notification:[0m[1m Not ECN-Capable Transport (0)
+[0m[1m[32m	Total Length:[0m[1m 146
+[0m[1m[32m	Identification:[0m[1m 0xf631 (63025)
+[0m[1m[32m	000. .... = Flags:[0m[1m 0x0
+[0m[1m[32m	0... .... = Reserved bit:[0m[1m Not set
+[0m[1m[32m	.0.. .... = Don't fragment:[0m[1m Not set
+[0m[1m[32m	..0. .... = More fragments:[0m[1m Not set
+[0m[1m[32m	...0 0000 0000 0000 = Fragment Offset:[0m[1m 0
+[0m[1m[32m	Time to Live:[0m[1m 128
+[0m[1m[32m	Protocol:[0m[1m UDP (17)
+[0m[1m[32m	Header Checksum:[0m[1m 0x0000 [validation disabled]
+[0m[1m[32m	Header checksum status:[0m[1m Unverified
+[0m[1m[32m	Source Address:[0m[1m 192.168.29.55
+[0m[1m[32m	Source or Destination Address:[0m[1m 192.168.29.55
+[0m[1m[32m	Source Host:[0m[1m 192.168.29.55
+[0m[1m[32m	Source or Destination Host:[0m[1m 192.168.29.55
+[0m[1m[32m	Destination Address:[0m[1m 142.250.82.148
+[0m[1m[32m	Destination Host:[0m[1m 142.250.82.148
+[0m[1m[32m	Source or Destination Address:[0m[1m 142.250.82.148
+[0m[1m[32m	Source or Destination Host:[0m[1m 142.250.82.148
+[0m[1m[33mLayer UDP
+:[0m[1m[32m	Source Port:[0m[1m 58797
+[0m[1m[32m	Destination Port:[0m[1m 3478
+[0m[1m[32m	Source or Destination Port:[0m[1m 58797
+[0m[1m[32m	Length:[0m[1m 126
+[0m[1m[32m	Checksum:[0m[1m 0xbffd incorrect, should be 0x6414 (maybe caused by "UDP checksum offload"?)
+[0m[1m[32m	Expert Info (Error/Checksum):[0m[1m Bad checksum [should be 0x6414]
+[0m[1m	Bad checksum [should be 0x6414]
+[0m[1m[32m	Message:[0m[1m Bad checksum [should be 0x6414]
+[0m[1m[32m	Severity level:[0m[1m Error
+[0m[1m[32m	Group:[0m[1m Checksum
+[0m[1m[32m	Calculated Checksum:[0m[1m 0x6414
+[0m[1m[32m	Checksum Status:[0m[1m Bad
+[0m[1m[32m	Stream index:[0m[1m 0
+[0m[1m	Timestamps
+[0m[1m[32m	Time since first frame:[0m[1m 0.000000000 seconds
+[0m[1m[32m	Time since previous frame:[0m[1m 0.000000000 seconds
+[0m[1m	UDP payload (118 bytes)
+[0m[1m[32m	Source or Destination Port:[0m[1m 3478
+[0mDATA
