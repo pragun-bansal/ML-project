@@ -2,13 +2,14 @@ import ssl
 import socket
 
 
-SERVER_IP = '192.168.29.55'
-PORT_NUMBER = 5000
-SIZE = 1024
 
-context                     = ssl.SSLContext()
-context.verify_mode         = ssl.CERT_REQUIRED
-context.load_verify_locations("./device.pem")
+SERVER_IP = '127.0.0.1'
+PORT_NUMBER = 8889
+CHUNK_SIZE = 1024  # 1 KB chunks
+
+# context                     = ssl.SSLContext()
+# context.verify_mode         = ssl.CERT_REQUIRED
+# context.load_verify_locations("./device.pem")
 
 # ssl_context = ssl.create_default_context()
 # ssl_context

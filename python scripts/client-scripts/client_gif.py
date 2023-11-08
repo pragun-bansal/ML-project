@@ -5,8 +5,8 @@ import time
 import random
 import json
 
-SERVER_IP = '10.100.82.108'
-PORT_NUMBER = 5000
+SERVER_IP = '127.0.0.1'
+PORT_NUMBER = 8889
 CHUNK_SIZE = 1024  # 1 KB chunks
 
 # Replace with your Giphy API key
@@ -42,8 +42,9 @@ while True:
             response = requests.get(gif_url, stream=True)
 
             if response.status_code == 200:
-                for chunk in response.iter_content(CHUNK_SIZE):
-                    mySocket.sendto(b'GIF:' + chunk, (SERVER_IP, PORT_NUMBER))
+                mySocket.sendto(b'HAI', (SERVER_IP, PORT_NUMBER))
+                # for chunk in response.iter_content(CHUNK_SIZE):
+                #     mySocket.sendto(b'GIF:' + chunk, (SERVER_IP, PORT_NUMBER))
 
                 print(f"Sent GIF from {gif_url} to the server.")
             else:
