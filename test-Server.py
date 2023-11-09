@@ -1,14 +1,9 @@
 import socket
 import threading
-from scapy.all import sniff, ARP, Dot11, EAPOL, ICMP
 import http.server
 import socketserver
-from flask import Flask
-from flask_sslify import SSLify
-from zeroconf import Zeroconf, ServiceInfo
 from pyftpdlib.handlers import FTPHandler
 from pyftpdlib.authorizers import DummyAuthorizer
-import ntplib
 from pyftpdlib.servers import FTPServer
 
 
@@ -29,6 +24,7 @@ def handle_tcp():
         print("TCP Client connected")
         while True:
             data = client_socket.recv(1024)
+            print(f"Received data: {data}")
             if not data:
                 break
             # Process and respond to the data
