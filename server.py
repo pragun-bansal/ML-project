@@ -10,7 +10,6 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QFrame, QHBoxLayout, QPus
 from PyQt5.QtCore import Qt
 import logging
 
-# class logging.Formatter(fmt=None, datefmt=None, **style='%'**, validate=True, *, defaults=None)
 
 class ServerApp(QMainWindow):
     def __init__(self):
