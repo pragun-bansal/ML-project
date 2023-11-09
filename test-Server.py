@@ -12,7 +12,6 @@ import ntplib
 from pyftpdlib.servers import FTPServer
 
 
-# FTP Protocol
 def handle_ftp():
     print("Starting FTP server on port 21")
     authorizer = DummyAuthorizer()
