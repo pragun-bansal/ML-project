@@ -20,37 +20,39 @@ def handle_ftp():
 
 
 def handle_tcp():
-    def handle_tcp_client(client_socket):
-        print("TCP Client connected")
+    try:
+        def handle_tcp_client(client_socket):
+            print("TCP Client connected")
+            while True:
+                data = client_socket.recv(1024)
+                print(f"Received data: {data}")
+                if not data:
+                    break
+                # Process and respond to the data
+                client_socket.send(b"Server received: " + data)
+            client_socket.close()
+
+        print("Starting TCP server on port 8888")
+        server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        server_socket.bind(('0.0.0.0', 4004))
+        server_socket.listen(5)
+
         while True:
-            data = client_socket.recv(1024)
-            print(f"Received data: {data}")
-            if not data:
-                break
-            # Process and respond to the data
-            client_socket.send(b"Server received: " + data)
-        client_socket.close()
-
-    print("Starting TCP server on port 8888")
-    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket.bind(('0.0.0.0', 8888))
-    server_socket.listen(5)
-
-    while True:
-        client_socket, client_address = server_socket.accept()
-        handle_tcp_client(client_socket)
+            client_socket, client_address = server_socket.accept()
+            handle_tcp_client(client_socket)
+    except Exception as e:
+        print(e)
+        pass
 
 def handle_udp():
     def handle_udp_server():
         print("Starting UDP server on port 8889")
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        server_socket.bind(('0.0.0.0', 8889))
+        server_socket.bind(('0.0.0.0', 5005))
 
         while True:
             data, client_address = server_socket.recvfrom(1024)
             print(f"Received data from {client_address}")
-
-            # Handle the received UDP data here
 
     handle_udp_server()
 

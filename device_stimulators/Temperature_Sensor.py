@@ -3,8 +3,8 @@ import json
 import time
 import random
 
-server_ip = '192.168.29.55'
-server_port = 8888
+server_ip = '127.0.0.1'
+server_port = 4004
 
 while True:
     temperature = random.uniform(20.0, 30.0)
@@ -14,7 +14,7 @@ while True:
         "temperature": temperature,
         "humidity": humidity
     }
-    
+
     json_data = json.dumps(data)
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -29,5 +29,5 @@ while True:
 
     s.close()
 
-    sleep_time = random.uniform(13, 15)
+    sleep_time = 4
     time.sleep(sleep_time)

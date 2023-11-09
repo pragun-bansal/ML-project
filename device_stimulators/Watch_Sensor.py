@@ -15,7 +15,7 @@ while True:
     }
 
     # Send the data to the server
-    response = requests.post(server_url, data=json.dumps(wearable_data), headers={'Content-Type': 'application/json'})
+    response = requests.get(server_url)
 
     if response.status_code == 200:
         print("Data sent successfully.")

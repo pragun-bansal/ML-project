@@ -20,8 +20,8 @@ class ServerApp(QMainWindow):
     def init_ui(self):
         self.server_config = {
             "HTTP": {"port": 8080},
-            "TCP": {"port": 8888},
-            "UDP": {"port": 8889},
+            "TCP": {"port": 5000},
+            "UDP": {"port": 5005},
             "FTP": {"ip": "192.168.29.55", "port": 21},
         }
 
