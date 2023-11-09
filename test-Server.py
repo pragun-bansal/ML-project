@@ -15,7 +15,6 @@ from pyftpdlib.servers import FTPServer
 # FTP Protocol
 def handle_ftp():
     print("Starting FTP server on port 21")
-
     authorizer = DummyAuthorizer()
     authorizer.add_user("username", "password", "D:\Documents", perm="elradfmw")
 
