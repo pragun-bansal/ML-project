@@ -19,7 +19,7 @@ def handle_ftp():
 
     handler = FTPHandler
     handler.authorizer = authorizer
-    server = FTPServer(("127.0.0.1", 21), handler)
+    server = FTPServer(("192.168.29.55", 21), handler)
     server.serve_forever()
     print("FTP server started. Listening on port 21")
 

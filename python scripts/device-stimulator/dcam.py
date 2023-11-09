@@ -6,8 +6,6 @@ import os
 ftp_server = "localhost" 
 ftp_username = "username"
 ftp_password = "password" 
-
-
 video_file = 'dday.mp4'
 
 def send_frames_to_ftp(video_file, ftp_server, ftp_username, ftp_password):
