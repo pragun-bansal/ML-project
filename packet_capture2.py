@@ -45,8 +45,8 @@ def port_class(port):
     else:
         return 0
 
-with open('predictor.csv', 'w', newline='') as csv_file:
-    features_name=['SRC IP','Arrival Time','ARP','LLC','EAPOL',"IP",'ICMP','ICMP6','TCP','UDP','TCP_w_size','HTTP','HTTPS','DHCP','BOOTP','SSDP','DNS','MDNS','NTP','FTP','IP_padding','IP_ralert','Portcl_src','Portcl_dst','Pck_size','Pck_rawdata',"Entropy","Flow Volume","Flow Per Second","Flow Duration","Average Flow Rate"] 
+with open('predictor2.csv', 'w', newline='') as csv_file:
+    features_name=['Arrival Time','ARP','LLC','EAPOL',"IP",'ICMP','ICMP6','TCP','UDP','TCP_w_size','HTTP','HTTPS','DHCP','BOOTP','SSDP','DNS','MDNS','NTP','FTP','IP_padding','IP_ralert','Portcl_src','Portcl_dst','Pck_size','Pck_rawdata',"Entropy","Flow Volume","Flow Per Second","Flow Duration","Average Flow Rate","Label"] 
     csv_writer = csv.writer(csv_file)
     csv_writer.writerow(features_name)
     print("CSV file created and headers written")
@@ -304,15 +304,11 @@ with open('predictor.csv', 'w', newline='') as csv_file:
         
         if source_ip in ip_hashmap:
             label  = ip_hashmap[source_ip]
-            scaler = preprocessing.MinMaxScaler() 
             time_sec = pkt.time - start_timestamp
-            new_data = np.array([time_sec,layer_2_arp,layer_2_llc,layer_3_eapol,layer_3_ip,layer_3_icmp,layer_3_icmp6,layer_4_tcp,layer_4_udp,layer_4_tcp_ws,layer_7_http,layer_7_https,layer_7_dhcp,layer_7_bootp,layer_7_ssdp,layer_7_dns,layer_7_mdns,layer_7_ntp,layer_7_ftp,ip_padding,ip_ralert,port_class_src,port_class_dst,pck_size,pck_rawdata,entropy,FV,FPS,FD,AFR])
-            new_data = new_data.reshape(1, -1)
-            scaler.fit_transform(new_data)
-            
-            # Now converting the new data to csv format
-            new_data = new_data.tolist()
-            csv_writer.writerow(new_data[0])
+            new_data = np.array([time_sec,layer_2_arp,layer_2_llc,layer_3_eapol,layer_3_ip,layer_3_icmp,layer_3_icmp6,layer_4_tcp,layer_4_udp,layer_4_tcp_ws,layer_7_http,layer_7_https,layer_7_dhcp,layer_7_bootp,layer_7_ssdp,layer_7_dns,layer_7_mdns,layer_7_ntp,layer_7_ftp,ip_padding,ip_ralert,port_class_src,port_class_dst,pck_size,pck_rawdata,entropy,FV,FPS,FD,AFR,label])
+            print(new_data)
+            csv_writer.writerow(new_data)
+
             # csv_writer.flush()
 
     capture = sniff(prn=packet_feature_extractor)
