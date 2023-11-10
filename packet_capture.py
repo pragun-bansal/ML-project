@@ -3,6 +3,8 @@ from scapy.layers.http import HTTPRequest
 import math
 import csv
 
+
+
 conf.use_pcap = True
 conf.use_npcap = True
 
@@ -34,7 +36,7 @@ def port_class(port):
     else:
         return 0
 
-with open('xv.csv', 'w', newline='') as csv_file:
+with open('predictor.csv', 'w', newline='') as csv_file:
     features_name=['SRC IP','Arrival Time','ARP','LLC','EAPOL',"IP",'ICMP','ICMP6','TCP','UDP','TCP_w_size','HTTP','HTTPS','DHCP','BOOTP','SSDP','DNS','MDNS','NTP','FTP','IP_padding','IP_ralert','Portcl_src','Portcl_dst','Pck_size','Pck_rawdata',"Entropy","Flow Volume","Flow Per Second","Flow Duration","Average Flow Rate"] 
     csv_writer = csv.writer(csv_file)
     csv_writer.writerow(features_name)

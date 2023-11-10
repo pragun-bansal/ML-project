@@ -29,5 +29,5 @@ while True:
 
     s.close()
 
-    sleep_time = 4
+    sleep_time = 7
     time.sleep(sleep_time)
