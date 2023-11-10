@@ -14,13 +14,11 @@ while True:
         "temperature": random.uniform(36.0, 37.5),
     }
 
-    # Send the data to the server
-    response = requests.get(server_url)
+    response = requests.post(f"{server_url}/wearable", json=wearable_data)
 
     if response.status_code == 200:
         print("Data sent successfully.")
     else:
         print(f"Failed to send data. Status code: {response.status_code}")
 
-    # Wait for a simulated interval (e.g., 60 seconds)
     time.sleep(60)

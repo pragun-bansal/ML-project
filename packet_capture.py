@@ -1,6 +1,10 @@
 from scapy.all import*
+from scapy.layers.http import HTTPRequest
 import math
 import csv
+
+conf.use_pcap = True
+conf.use_npcap = True
 
 temp_ipsrc, temp_ipdst, temp_sport, temp_dport, temp_proto = 0, 0, 0, 0, 0
 count=0
@@ -12,10 +16,29 @@ FV,FD,AFR,Tot_Sess,FPS=0,0,0,0,0
 flag = 0
 t1,t2,t=0,0,0
 
-with open('data.csv', 'w', newline='') as csv_file:
-    features_name=['SRC IP','ARP','LLC','EAPOL',"IP",'ICMP','ICMP6','TCP','UDP','TCP_w_size','HTTP','HTTPS','DHCP','BOOTP','SSDP','DNS','MDNS','NTP','IP_padding','IP_ralert','Portcl_src','Portcl_dst','Pck_size','Pck_rawdata',"Entropy","Flow Volume","Flow Per Second","Flow Duration","Average Flow Rate"] 
+# storign current timestamp so that we can store relative time in packet feature
+start_timestamp  = time.time()
+
+
+    
+def port_class(port):
+    if port== 59655:
+        print("FTP")
+        return 4
+    if 0 <= port <= 1023:
+        return 1
+    elif  1024 <= port <= 49151 :
+        return 2
+    elif 49152 <=port <= 65535 :
+        return 3
+    else:
+        return 0
+
+with open('xv.csv', 'w', newline='') as csv_file:
+    features_name=['SRC IP','Arrival Time','ARP','LLC','EAPOL',"IP",'ICMP','ICMP6','TCP','UDP','TCP_w_size','HTTP','HTTPS','DHCP','BOOTP','SSDP','DNS','MDNS','NTP','FTP','IP_padding','IP_ralert','Portcl_src','Portcl_dst','Pck_size','Pck_rawdata',"Entropy","Flow Volume","Flow Per Second","Flow Duration","Average Flow Rate"] 
     csv_writer = csv.writer(csv_file)
     csv_writer.writerow(features_name)
+    print("CSV file created and headers written")
 
     def shannon(data):
         '''
@@ -45,6 +68,9 @@ with open('data.csv', 'w', newline='') as csv_file:
         for i in payload:
             characters.append(i)
         return shannon(characters)
+    
+
+
 
 
     def packet_feature_extractor(pkt):
@@ -62,6 +88,7 @@ with open('data.csv', 'w', newline='') as csv_file:
         layer_2_arp = 0
         layer_2_llc = 0
         source_ip =0
+        destination_ip =0
         layer_3_eapol = 0        
         layer_3_ip = 0
         layer_3_icmp = 0
@@ -79,6 +106,7 @@ with open('data.csv', 'w', newline='') as csv_file:
         layer_7_dns = 0
         layer_7_mdns = 0
         layer_7_ntp = 0
+        layer_7_ftp = 0
 
         ip_padding = 0
         ip_ralert = 0
@@ -90,12 +118,17 @@ with open('data.csv', 'w', newline='') as csv_file:
         pck_size = 0
         pck_rawdata = 0
         entropy=0
+        time_sec = 0
 
         
         # Caputing packet length
         try:
             pck_size=pkt.len
         except: pass
+
+
+        # Print source port and destination port
+
         
         try:
             if pkt[IP]:
@@ -107,6 +140,7 @@ with open('data.csv', 'w', newline='') as csv_file:
                 
             temp=str(pkt[IP].dst)
             source_ip = str(pkt[IP].src)
+            destination_ip = str(pkt[IP].dst)
             
             
             if temp not in dst_ip_list:
@@ -114,6 +148,7 @@ with open('data.csv', 'w', newline='') as csv_file:
                 dst_ip_list.append(temp)
 
             # Getting source ip and destination ip
+            # print("Source Port: ",pkt[IP].sport)
             port_class_src = port_class(pkt[IP].sport)
             port_class_dst = port_class(pkt[IP].dport)
         except: pass
@@ -160,10 +195,24 @@ with open('data.csv', 'w', newline='') as csv_file:
                 # print("It has tcp")
                 layer_4_tcp = 1
                 layer_4_tcp_ws=pkt[TCP].window
+                
+                x = port_class(pkt[TCP].sport) 
+                y = port_class(pkt[TCP].dport)
+
+                if port_class_src==0 and x!=0:
+                    port_class_src=x
+
+                if port_class_dst==0 and y!=0:
+                    port_class_dst=y
+
+
                 if pkt[TCP].sport==80 or pkt[TCP].dport==80:
                     layer_7_http = 1      
                 if pkt[TCP].sport==443 or pkt[TCP].dport==443:
                     layer_7_https = 1  
+                if pkt[TCP].dport==21 or pkt[TCP].sport==21:
+                    layer_7_ftp = 1
+
         except:pass     
 
 
@@ -199,7 +248,7 @@ with open('data.csv', 'w', newline='') as csv_file:
                 AFR= (FV/FD)
 
         except: 
-            print("exception")
+            pass
         
         try:
             if pkt[ARP]:
@@ -224,8 +273,31 @@ with open('data.csv', 'w', newline='') as csv_file:
             # print("Entropy: ",entropy)
         except:pass
 
+
+        # if source_ip=='192.168.29.55':
+        #     print(destination_ip)
+
         # print(source_ip,layer_2_arp,layer_2_llc,layer_3_eapol,layer_3_ip,layer_3_icmp,layer_3_icmp6,layer_4_tcp,layer_4_udp,layer_4_tcp_ws,layer_7_http,layer_7_https,layer_7_dhcp,layer_7_bootp,layer_7_ssdp,layer_7_dns,layer_7_mdns,layer_7_ntp,ip_padding,ip_ralert,port_class_src,port_class_dst,pck_size,pck_rawdata,entropy)
-        csv_writer.writerow([source_ip,layer_2_arp,layer_2_llc,layer_3_eapol,layer_3_ip,layer_3_icmp,layer_3_icmp6,layer_4_tcp,layer_4_udp,layer_4_tcp_ws,layer_7_http,layer_7_https,layer_7_dhcp,layer_7_bootp,layer_7_ssdp,layer_7_dns,layer_7_mdns,layer_7_ntp,ip_padding,ip_ralert,port_class_src,port_class_dst,pck_size,pck_rawdata,entropy,FV,FPS,FD,AFR])
-        csv_file.flush()
+        
+        if HTTPRequest in pkt:
+            # source_ip = str(pkt[IP].sr/
+            layer_7_http = 1
+  
+
+        # try:
+        #     if pkt[ARP]:
+        #         # print("ARP")
+        # except Exception as e:
+        #     pass
+
+        if source_ip=='192.168.29.8' and destination_ip=='192.168.29.55':
+            # print(pkt.summary())
+            # device name = ggggg
+
+            
+            time_sec = pkt.time - start_timestamp
+            # print(time_sec)
+            csv_writer.writerow([source_ip,time_sec,layer_2_arp,layer_2_llc,layer_3_eapol,layer_3_ip,layer_3_icmp,layer_3_icmp6,layer_4_tcp,layer_4_udp,layer_4_tcp_ws,layer_7_http,layer_7_https,layer_7_dhcp,layer_7_bootp,layer_7_ssdp,layer_7_dns,layer_7_mdns,layer_7_ntp,layer_7_ftp,ip_padding,ip_ralert,port_class_src,port_class_dst,pck_size,pck_rawdata,entropy,FV,FPS,FD,AFR])
+            csv_file.flush()
 
     capture = sniff(prn=packet_feature_extractor)

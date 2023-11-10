@@ -6,7 +6,6 @@ server_ip = '192.168.29.55'
 server_port = 8888
 
 while True:
-    # Simulate siren status and event data
     siren_activated = random.choice([True, False])
     battery_status = random.uniform(0, 100)
     data = f"Siren Activated: {siren_activated}, Battery Status: {battery_status}%"

@@ -10,6 +10,24 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QFrame, QHBoxLayout, QPus
 from PyQt5.QtCore import Qt
 import logging
 
+import http.server
+
+class MyRequestHandler(http.server.BaseHTTPRequestHandler):
+    def do_POST(self):
+        content_length = int(self.headers['Content-Length'])
+        post_data = self.rfile.read(content_length).decode('utf-8')
+
+        response_message = f"POST data received: {post_data}"
+        print(response_message)
+        self.send_response(200)
+        self.send_header('Content-type', 'text/plain')
+        self.end_headers()
+        self.wfile.write(response_message.encode('utf-8'))
+
+    def log_message(self, format, *args):
+        # Override log_message to suppress log messages to the console
+        pass
+
 
 class ServerApp(QMainWindow):
     def __init__(self):
@@ -146,11 +164,16 @@ class ServerApp(QMainWindow):
             self.start_ftp_server(config, log, log_event)
 
     def start_http_server(self, config, log, log_event):
-        port = config["port"]
-        log_event(f"Starting HTTP server on port {port}")
-        with socketserver.TCPServer(("", port), http.server.SimpleHTTPRequestHandler) as httpd:
-            log_event(f"HTTP server started. Listening on port {port}")
-            httpd.serve_forever()
+        try:
+            port = config["port"]
+            log_event(f"Starting HTTP server on port {port}")
+            handler = MyRequestHandler
+            with socketserver.TCPServer(("", port), handler) as httpd:
+                log_event(f"HTTP server started. Listening on port {port}")
+                httpd.serve_forever()
+        except Exception as e:
+            print(e)
+            log_event(f"Error starting HTTP server: {e}")
 
     def start_tcp_server(self, config, log, log_event):
         port = config["port"]
@@ -185,10 +208,11 @@ class ServerApp(QMainWindow):
         port = config["port"]
         log_event(f"Starting UDP server on port {port}")
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        server_socket.bind(('0.0.0.0', port))
+        server_socket.bind(('192.168.29.55', port))
 
         while not self.server_stop_flags["UDP"].is_set():
             data, client_address = server_socket.recvfrom(1024)
+
             log_event(f"Received data from {client_address}")
 
     def start_ftp_server(self, config, log, log_event):
