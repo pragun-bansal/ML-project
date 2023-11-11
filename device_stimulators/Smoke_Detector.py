@@ -16,4 +16,5 @@ while True:
         except ConnectionRefusedError:
             print("Failed to connect to the server. Ensure the server is running.")
 
-    time.sleep(4)  # Wait for 4 seconds before sending the next message
+    time.sleep(4)  
+
