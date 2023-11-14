@@ -4,6 +4,11 @@ import math
 import csv
 import numpy as np
 from sklearn import preprocessing
+import requests
+import json
+
+url = "http://localhost:8601/v1/models/iot_model:predict"
+headers = {"content-type": "application/json"}
 
 
 ip = ['192.168.29.8']
@@ -304,10 +309,29 @@ with open('predictor2.csv', 'w', newline='') as csv_file:
         
         if source_ip in ip_hashmap:
             label  = ip_hashmap[source_ip]
+
+
             time_sec = pkt.time - start_timestamp
-            new_data = np.array([time_sec,layer_2_arp,layer_2_llc,layer_3_eapol,layer_3_ip,layer_3_icmp,layer_3_icmp6,layer_4_tcp,layer_4_udp,layer_4_tcp_ws,layer_7_http,layer_7_https,layer_7_dhcp,layer_7_bootp,layer_7_ssdp,layer_7_dns,layer_7_mdns,layer_7_ntp,layer_7_ftp,ip_padding,ip_ralert,port_class_src,port_class_dst,pck_size,pck_rawdata,entropy,FV,FPS,FD,AFR,label])
-            print(new_data)
-            csv_writer.writerow(new_data)
+        # new_data = np.array([time_sec,layer_2_arp,layer_2_llc,layer_3_eapol,layer_3_ip,layer_3_icmp,layer_3_icmp6,layer_4_tcp,layer_4_udp,layer_4_tcp_ws,layer_7_http,layer_7_https,layer_7_dhcp,layer_7_bootp,layer_7_ssdp,layer_7_dns,layer_7_mdns,layer_7_ntp,layer_7_ftp,ip_padding,ip_ralert,port_class_src,port_class_dst,pck_size,pck_rawdata,entropy,FV,FPS,FD,AFR,label])
+        # print(new_data)
+
+            input_data_np = np.array([layer_2_arp,layer_2_llc,layer_3_eapol,layer_3_ip,layer_3_icmp,layer_3_icmp6,layer_4_tcp,layer_4_udp,layer_4_tcp_ws,layer_7_http,layer_7_https,layer_7_dhcp,layer_7_bootp,layer_7_ssdp,layer_7_dns,layer_7_mdns,layer_7_ntp,layer_7_ftp,ip_padding,ip_ralert,port_class_src,port_class_dst,pck_size,pck_rawdata])
+            input_data_np = input_data_np.reshape(1, -1)
+            input_data = {"instances": input_data_np.tolist()}
+            json_data = json.dumps(input_data)
+            response = requests.post(url, data=json_data, headers=headers)
+            y = response.json()
+            for key, value in y.items():
+                res = np.array(value).argmax()
+                if layer_4_udp==1:
+                    print(res)
+                    print(value)
+            # y = response.json().predictions[0]
+            # print(y.argmax())
+        # else:
+            # print("IP not accepted")
+
+        # csv_writer.writerow(new_data)
 
             # csv_writer.flush()
 

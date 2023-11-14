@@ -1,0 +1,1 @@
+Arrival Time,ARP,LLC,EAPOL,IP,ICMP,ICMP6,TCP,UDP,TCP_w_size,HTTP,HTTPS,DHCP,BOOTP,SSDP,DNS,MDNS,NTP,FTP,IP_padding,IP_ralert,Portcl_src,Portcl_dst,Pck_size,Pck_rawdata,Entropy,Flow Volume,Flow Per Second,Flow Duration,Average Flow Rate,Label
