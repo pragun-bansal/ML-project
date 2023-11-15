@@ -58,25 +58,25 @@ class ServerApp(QMainWindow):
 
 
         team_label = QLabel("Team Name: Shivam Gupta, Yash Rajoria, Pragun Bansal")
-        project_label = QLabel("Project: IOT DEVICE CLASSIFIER")
-        mentor_label = QLabel("Mentor: Dr. Gaurav Singhal")
+        project_label = QLabel("Project: IOT DEVICE CLASSIFICATION")
+        # mentor_label = QLabel("Mentor: Dr. Gaurav Singhal")
 
         label_style = "font-size: 22px; color: white; padding: 10px; font-weight: bold;"
         team_label.setStyleSheet(label_style)
         project_label.setStyleSheet(label_style)
-        mentor_label.setStyleSheet(label_style)
+        # mentor_label.setStyleSheet(label_style)
 
         labelBox = QVBoxLayout()
         labelBox.addWidget(team_label)
         labelBox.addWidget(project_label)
-        labelBox.addWidget(mentor_label)
+        # labelBox.addWidget(mentor_label)
         labelBox.setSpacing(0)
         label_box.setContentsMargins(0, 0, 0, 0)
         label_box.setMaximumHeight(250)
 
         label_box.setLayout(labelBox)
 
-        right_side.addWidget(label_box)
+        # right_side.addWidget(label_box)
 
 
         layout = QVBoxLayout()
